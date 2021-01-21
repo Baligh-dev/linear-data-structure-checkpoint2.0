@@ -1,0 +1,25 @@
+ALGORITHM Solution using loop1
+VAR
+    set1,set2 : ARRAY_OF INTEGER[20];
+    i,j : INTEGER;
+    sum : INTEGER :=  0;
+    found : BOOLEAN;
+BEGIN
+
+    FOR i FROM 0 TO set1.length-1 DO
+        found := FALSE;
+        FOR j FROM 0 TO set2.length-1 DO
+            IF(set1[i] = set2[j]) THEN
+                found := TRUE;
+                BREAK;
+            END
+        END_FOR
+        IF (found) THEN
+            sum := sum + set1[i];
+        END_IF
+    END_FOR
+    // No need to check the second set because we already know the remaining elements don't exist in the first set.
+    // Also, according to the checkpoint statements we know that in this example The elements in each set are unique or there are no duplicates within a set.
+
+    Write(sum);
+END
